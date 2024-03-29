@@ -1,6 +1,6 @@
 import { db } from "@/db";
 import { parkingPlaces, place } from "@/db/models";
-import { Button } from "@/components/mobile/common";
+import { Button, Block } from "@/components/mobile/common";
 import { eq } from "drizzle-orm";
 import Arrow from "@/public/icons/layout/Arrow.svg";
 import React from "react";
@@ -47,6 +47,16 @@ export default async function Parking({
             </div>
           </div>
         </Button>
+      </section>
+
+      <section className="mt-14 flex h-full w-full flex-wrap justify-center gap-4">
+        {data.places.map((place) => (
+          <Block
+            key={place.id}
+            number={`${place.section}${place.number}`}
+            owned={!!(place.owned_by as number)}
+          />
+        ))}
       </section>
     </main>
   );
