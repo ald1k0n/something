@@ -4,12 +4,13 @@ import { ReactNode, FC, ButtonHTMLAttributes } from 'react';
 
 type IProps = {
 	children: ReactNode;
-	types?: 'primary' | 'danger';
+	types?: 'primary' | 'danger' | 'black';
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const typeColors = {
 	primary: 'bg-primary',
 	danger: 'bg-red-400',
+	black: 'bg-black',
 };
 
 export const Button: FC<IProps> = ({

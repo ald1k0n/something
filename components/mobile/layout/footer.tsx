@@ -13,7 +13,7 @@ const links: { [x: string]: string } = {
 	Loupe: '',
 	Love: '',
 	Message: '',
-	User: '',
+	User: '/phone/user',
 };
 
 const IconsFooter = (icon: any) => {

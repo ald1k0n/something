@@ -11,8 +11,8 @@ export const Input: React.FC<IProps> = ({ label, ...props }) => {
 		<div className='flex flex-col justify-center p-2'>
 			{label && <label>{label}</label>}
 			<input
-				className='w-full px-1 border-2 border-primary rounded-3xl appearance-none'
 				{...props}
+				className={`w-full px-1 border-2 border-primary rounded-3xl appearance-none ${props.className}`}
 			/>
 		</div>
 	);

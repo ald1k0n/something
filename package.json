@@ -12,12 +12,16 @@
 		"push-db": "npx drizzle-kit push:sqlite"
 	},
 	"dependencies": {
+		"@auth/drizzle-adapter": "^0.8.1",
+		"@types/bcryptjs": "^2.4.6",
 		"@types/better-sqlite3": "^7.6.9",
 		"@types/date-fns": "^2.6.0",
+		"bcryptjs": "^2.4.3",
 		"better-sqlite3": "^9.4.3",
 		"date-fns": "^3.6.0",
 		"drizzle-orm": "^0.30.5",
 		"next": "14.1.4",
+		"next-auth": "^4.24.7",
 		"react": "^18",
 		"react-dom": "^18",
 		"ts-node": "^10.9.2"

@@ -27,7 +27,7 @@ export default async function Parking({
 
 	return (
 		<main className='flex w-full flex-col items-center py-4'>
-			<div className='text-2xl'>{data.current.building_name}</div>
+			<div className='text-2xl'>{data.current?.building_name}</div>
 			<section className='mt-6 flex w-full justify-around'>
 				<Button type='button'>
 					<div className='flex w-32 justify-between gap-3'>

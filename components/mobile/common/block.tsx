@@ -1,9 +1,10 @@
 'use client';
 import { Modal } from '@/components/ui';
-import { FC, HTMLAttributes, useState } from 'react';
+import { FC, HTMLAttributes, useState, useContext } from 'react';
 import { Input } from './input';
 import { Button } from './button';
-
+import { useRouter } from 'next/navigation';
+import { UserContext } from '../layout/Providers';
 interface IProps extends HTMLAttributes<HTMLDivElement> {
 	number: string;
 	owned: boolean;
@@ -19,6 +20,10 @@ export const Block: FC<IProps> = ({
 	...props
 }) => {
 	const [currentId, setCurrentId] = useState<number | null>(null);
+	//@ts-ignore
+	const { user } = useContext(UserContext);
+
+	const router = useRouter();
 
 	const handleConfirm = async (id: number, userId: number) => {
 		await fetch('http://localhost:3000/api/parking', {
@@ -27,6 +32,8 @@ export const Block: FC<IProps> = ({
 		})
 			.then(console.log)
 			.catch(console.log);
+
+		router.refresh();
 	};
 
 	return (
@@ -63,7 +70,7 @@ export const Block: FC<IProps> = ({
 							</Button>
 							<Button
 								onClick={async () => {
-									await handleConfirm(parkingid, 1);
+									await handleConfirm(parkingid, user.id);
 									setCurrentId(null);
 								}}
 								className='!w-full'>
