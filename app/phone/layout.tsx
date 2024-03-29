@@ -1,17 +1,23 @@
-import { Footer, Header } from '@/components/mobile';
-import { ReactNode } from 'react';
+import { Footer, Header } from "@/components/mobile";
+import { ReactNode } from "react";
+
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({ subsets: ["cyrillic", "latin"] });
 
 const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {
-	return (
-		<body className='w-full min-h-screen bg-secondary'>
-			<header className='w-full px-4'>
-				<Header />
-			</header>
-			<main className='w-full mt-14 px-4'>{children}</main>
-			<Footer />
-			<div id='portal'></div>
-		</body>
-	);
+  return (
+    <body
+      className={`bg-secondary min-h-screen w-full ${montserrat.className}`}
+    >
+      <header className="w-full px-4">
+        <Header />
+      </header>
+      <main className="mt-14 w-full px-4">{children}</main>
+      <Footer />
+      <div id="portal"></div>
+    </body>
+  );
 };
 
 export default Layout;
