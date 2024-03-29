@@ -13,8 +13,10 @@ export const Modal: FC<IProps> = ({ children }) => {
 	return mounted
 		? createPortal(
 				<div className='fixed top-0 bg-black bg-opacity-40 w-full min-h-screen flex justify-center items-center p-5'>
-					<div className='bg-white w-full h-[480px] rounded-3xl text-black p-4 overflow-auto'>
+					<div className='bg-white w-full h-[480px] rounded-3xl text-black px-4 py-6 overflow-auto flex justify-between'>
+						<div className=' h-full border-2 border-primary'></div>
 						{children}
+						<div className=' h-full border-2 border-primary'></div>
 					</div>
 				</div>,
 				document.getElementById('portal')!

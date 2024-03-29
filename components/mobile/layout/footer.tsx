@@ -4,19 +4,29 @@ import Love from '@/public/icons/layout/Love.svg';
 import Message from '@/public/icons/layout/Message.svg';
 import User from '@/public/icons/layout/User.svg';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const icons = [Loupe, Love, Home, Message, User];
 
+const links: { [x: string]: string } = {
+	House: '/phone',
+	Loupe: '',
+	Love: '',
+	Message: '',
+	User: '',
+};
+
 const IconsFooter = (icon: any) => {
+	const splitted = icon.icon.src.split('/')[4].split('.')[0];
 	return (
-		<div>
+		<Link href={links[splitted]}>
 			<Image
 				src={icon.icon.src}
 				width={icon.icon.width}
 				height={icon.icon.height}
 				alt='name'
 			/>
-		</div>
+		</Link>
 	);
 };
 

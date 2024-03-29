@@ -1,14 +1,20 @@
+'use client';
 import Arrow from '@/public/icons/layout/Arrow.svg';
 import Settings from '@/public/icons/layout/Settings.svg';
 import Image from 'next/image';
 
+import { useRouter } from 'next/navigation';
 import { format } from 'date-fns';
 
 export const Header = () => {
+	const router = useRouter();
+
 	return (
 		<header className='w-full h-12 rounded-full left-0 fixed  top-2 bg-primary flex p-3 justify-between items-center'>
 			<div className='h-full flex items-center'>
-				<div className='w-24'>
+				<div
+					className='w-24 cursor-pointer'
+					onClick={() => router.back()}>
 					<Image
 						src={Arrow}
 						alt='Arrow'
