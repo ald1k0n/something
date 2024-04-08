@@ -1,6 +1,5 @@
 import { Footer, Header, Providers } from '@/components/mobile';
 import { ReactNode } from 'react';
-
 import { Montserrat } from 'next/font/google';
 
 const montserrat = Montserrat({ subsets: ['cyrillic', 'latin'] });

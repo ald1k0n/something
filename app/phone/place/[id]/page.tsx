@@ -5,13 +5,16 @@ import { eq } from 'drizzle-orm';
 import Arrow from '@/public/icons/layout/Arrow.svg';
 import React, { Fragment } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
-const getPlace = async (id: number) => {
+const getPlace = async (id: number, limit: number = 49, page: number = 0) => {
 	const [current] = await db.select().from(place).where(eq(place.id, id));
 	const places = await db
 		.select()
 		.from(parkingPlaces)
-		.where(eq(parkingPlaces.place_id, id));
+		.where(eq(parkingPlaces.place_id, id))
+		.limit(limit)
+		.offset(page * limit);
 	return {
 		places,
 		current,
@@ -20,40 +23,48 @@ const getPlace = async (id: number) => {
 
 export default async function Parking({
 	params,
+	searchParams,
 }: {
-	[x: string]: { id: string };
+	params: { id: string };
+	searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-	const data = await getPlace(Number(params.id));
+	const currentPage = searchParams?.page || 1;
+	const data = await getPlace(Number(params.id), 49, Number(currentPage) - 1);
 
 	return (
-		<main className='flex w-full flex-col items-center py-4'>
+		<main className='flex w-full flex-col items-center py-4 text-white'>
 			<div className='text-2xl'>{data.current?.building_name}</div>
 			<section className='mt-6 flex w-full justify-around'>
-				<Button type='button'>
-					<div className='flex w-32 justify-between gap-3'>
-						<div>
-							<Image
-								src={Arrow}
-								alt='Previous'
-							/>
+				<Link href='?page=1'>
+					<Button type='button'>
+						<div className='flex w-32 justify-between gap-3'>
+							<div>
+								<Image
+									src={Arrow}
+									alt='Previous'
+								/>
+							</div>
+							<div>Zone 1</div>
+							<div></div>
 						</div>
-						<div>Zone 1</div>
-						<div></div>
-					</div>
-				</Button>
-				<Button type='button'>
-					<div className='flex w-32 justify-between gap-3'>
-						<div></div>
-						<div>Zone 2</div>
-						<div>
-							<Image
-								src={Arrow}
-								alt='Next'
-								className='-rotate-180'
-							/>
+					</Button>
+				</Link>
+
+				<Link href='?page=2'>
+					<Button type='button'>
+						<div className='flex w-32 justify-between gap-3'>
+							<div></div>
+							<div>Zone 2</div>
+							<div>
+								<Image
+									src={Arrow}
+									alt='Next'
+									className='-rotate-180'
+								/>
+							</div>
 						</div>
-					</div>
-				</Button>
+					</Button>
+				</Link>
 			</section>
 
 			<section className='mt-14 flex h-full w-full flex-wrap justify-center gap-4'>

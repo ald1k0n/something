@@ -4,11 +4,12 @@ const button_types = {
 	primary: 'bg-primary text-white',
 	link: 'text-white',
 	white: 'bg-white text-primary',
+	secondary: 'bg-secondary text-white',
 };
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	children: ReactNode;
-	types?: 'primary' | 'link' | 'white';
+	types?: 'primary' | 'link' | 'white' | 'secondary';
 }
 
 export const Button: FC<IProps> = ({

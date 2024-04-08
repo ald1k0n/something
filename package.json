@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"db:studio": "drizzle-kit studio",
-		"dev": "next dev --turbo",
+		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",

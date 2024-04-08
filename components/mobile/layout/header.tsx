@@ -10,7 +10,7 @@ export const Header = () => {
 	const router = useRouter();
 
 	return (
-		<header className='w-full h-12 rounded-full left-0 fixed  top-2 bg-primary flex p-3 justify-between items-center'>
+		<div className='w-full h-12 rounded-full left-0 fixed mt-12  top-2 bg-primary flex p-3 justify-between items-center text-white'>
 			<div className='h-full flex items-center'>
 				<div
 					className='w-24 cursor-pointer'
@@ -32,6 +32,6 @@ export const Header = () => {
 					alt='Settings'
 				/>
 			</div>
-		</header>
+		</div>
 	);
 };

@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 
 export const UserContext = createContext<
 	| {
-			user: Omit<IUserGet, 'password'>;
+			user: any;
 	  }
 	| {}
 >({});
@@ -24,9 +24,5 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
 		}
 	}, []);
 
-	return (
-		<UserContext.Provider value={{ user: user as Omit<IUserGet, 'password'> }}>
-			{children}
-		</UserContext.Provider>
-	);
+	return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
 };

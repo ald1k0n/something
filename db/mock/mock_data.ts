@@ -18,7 +18,21 @@ export const createMega = async () => {
 };
 
 export const addParkingPlaces = async (place_id: number) => {
-	const sections = ['A', 'B', 'C', 'D', 'E', 'F'];
+	const sections = [
+		'A',
+		'B',
+		'C',
+		'D',
+		'E',
+		'F',
+		'G',
+		'H',
+		'I',
+		'J',
+		'K',
+		'L',
+		'M',
+	];
 	const parkingPlacesArray: IParkingPlaceCreate[] = [];
 
 	sections.forEach((section) => {

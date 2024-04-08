@@ -2,7 +2,7 @@ import { Button } from '../common/button';
 
 export const Header = () => {
 	return (
-		<header className='w-full bg-secondary flex h-28 '>
+		<header className='w-full lg:flex hidden bg-secondary  h-28 '>
 			<div className='w-full  flex container mx-auto justify-between items-center'>
 				<div className='font-bold text-5xl text-white'>ParkSmart</div>
 				<div className='w-[600px]'>

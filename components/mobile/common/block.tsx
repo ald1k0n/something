@@ -21,8 +21,7 @@ export const Block: FC<IProps> = ({
 }) => {
 	const [currentId, setCurrentId] = useState<number | null>(null);
 	//@ts-ignore
-	const { user } = useContext(UserContext);
-
+	const user = useContext(UserContext);
 	const router = useRouter();
 
 	const handleConfirm = async (id: number, userId: number) => {
@@ -70,7 +69,7 @@ export const Block: FC<IProps> = ({
 							</Button>
 							<Button
 								onClick={async () => {
-									await handleConfirm(parkingid, user.id);
+									await handleConfirm(parkingid, (user as any).id);
 									setCurrentId(null);
 								}}
 								className='!w-full'>
