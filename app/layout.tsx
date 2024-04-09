@@ -3,6 +3,7 @@ import './globals.css';
 
 import { Montserrat } from 'next/font/google';
 import { Footer, Header } from '@/components/ui';
+import { Providers } from '@/components/mobile';
 
 const montserrat = Montserrat({ subsets: ['cyrillic', 'latin'] });
 
@@ -19,8 +20,11 @@ export default function RootLayout({
 		<html lang='en'>
 			<body className={montserrat.className}>
 				<Header />
-				<main className=''>{children}</main>
+				<Providers>
+					<main className=''>{children}</main>
+				</Providers>
 				<Footer />
+				<div id='portal'></div>
 			</body>
 		</html>
 	);

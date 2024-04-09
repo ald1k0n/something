@@ -40,7 +40,7 @@ export const Block: FC<IProps> = ({
 			<div
 				{...props}
 				onClick={() => setCurrentId(parkingid)}
-				className={`text-primary flex h-9 w-9 items-center justify-center rounded-md cursor-pointer ${
+				className={`text-primary flex h-9 w-9 md:h-16 md:w-16 items-center justify-center rounded-md cursor-pointer ${
 					owned ? 'bg-red-400 cursor-not-allowed' : 'bg-[#D9D9D9]'
 				}`}>
 				{number}

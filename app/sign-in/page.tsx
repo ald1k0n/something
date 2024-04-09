@@ -23,8 +23,9 @@ export default function SignIn() {
 			const user = await LoginUser(formData, false);
 			if (!user.success) {
 				alert(user.error);
+			} else {
+				localStorage.setItem('user', JSON.stringify(user?.user));
 			}
-			localStorage.setItem('user', JSON.stringify(user?.user));
 		}
 	};
 
@@ -133,7 +134,9 @@ export default function SignIn() {
 						</div>
 
 						<Button
-							onClick={handleSubmit}
+							onClick={async () => {
+								await handleSubmit().then(() => router.replace('/'));
+							}}
 							className='mt-8'
 							types='secondary'>
 							Continue

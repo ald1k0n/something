@@ -20,14 +20,15 @@ const getParkingCount = async (placeId: number) => {
 
 interface IProps {
 	data: IPlaceGet;
+	isWeb?: boolean;
 }
 
-export const Card: FC<IProps> = async ({ data }) => {
+export const Card: FC<IProps> = async ({ data, isWeb }) => {
 	const countParking = await getParkingCount(data.id).then((res) => res.count);
 
 	return (
 		<Link
-			href={`/phone/place/${data.id}`}
+			href={!isWeb ? `/phone/place/${data.id}` : `/search/${data.id}`}
 			className='flex h-32 w-full gap-4 rounded-3xl bg-primary p-3'>
 			<div className='h-full w-24'>
 				<Image
