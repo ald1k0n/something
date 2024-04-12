@@ -37,7 +37,11 @@ export async function LoginUser(formData: FormData, isMobile: boolean = true) {
 	};
 }
 
-export async function createUser(usr: any) {
+export async function createUser(usr: {
+	password: string;
+	phone: string;
+	user_name: string;
+}) {
 	const values: IUserCreate = {
 		password: usr.password,
 		phone_number: usr.phone,

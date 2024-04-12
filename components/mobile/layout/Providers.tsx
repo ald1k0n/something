@@ -19,8 +19,6 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
 		if (localStorage.getItem('user')) {
 			const userP = localStorage.getItem('user');
 			setUser(JSON.parse(userP!));
-		} else {
-			router.replace('/auth/login');
 		}
 	}, []);
 

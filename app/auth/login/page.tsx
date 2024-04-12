@@ -3,6 +3,7 @@ import { Button, Input } from '@/components/mobile/common';
 import { useState } from 'react';
 import { LoginUser } from './action';
 import { useRouter } from 'next/navigation';
+import InputMask from 'react-input-mask';
 
 export default function Login() {
 	const [formState, setFormState] = useState<{
@@ -31,12 +32,22 @@ export default function Login() {
 				<div className='font-semibold text-4xl mt-16'>Log In</div>
 
 				<div className='mt-16 w-80'>
-					<Input
-						name='phone_number'
-						label='phone number'
-						className='h-12'
-						placeholder='Enter phone number'
-					/>
+					<InputMask
+						mask='+79999999999'
+						name='phone_number'>
+						{
+							//@ts-ignore
+							(inputProps: any) => (
+								<Input
+									{...inputProps}
+									label='phone number'
+									className='h-12'
+									placeholder='Enter phone number'
+								/>
+							)
+						}
+					</InputMask>
+
 					<Input
 						name='password'
 						label='password'

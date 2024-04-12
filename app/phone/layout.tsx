@@ -8,11 +8,11 @@ const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {
 	return (
 		<body
 			className={`bg-secondary min-h-screen w-full ${montserrat.className}`}>
-			<header className='w-full px-4'>
+			<header className='w-full px-4 mx-auto'>
 				<Header />
 			</header>
 			<Providers>
-				<main className='mt-14 w-full px-4'>{children}</main>
+				<main className=' w-full px-4'>{children}</main>
 			</Providers>
 			<Footer />
 			<div id='portal'></div>

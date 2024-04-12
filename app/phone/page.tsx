@@ -11,7 +11,7 @@ const Mobile = async () => {
 	const places = await getPlaces();
 	return (
 		<section className='w-full'>
-			<section className='w-full flex flex-col gap-5 mt-32 text-white'>
+			<section className='w-full flex flex-col gap-5 mt-8 text-white'>
 				<div>Результаты: {places.length}</div>
 				{places.map((place) => (
 					<Card

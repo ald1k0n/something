@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { createUser, LoginUser } from '../auth/login/action';
 
+import InputMask from 'react-input-mask';
+
 export default function SignIn() {
 	const router = useRouter();
 	const [userData, setUserData] = useState({});
@@ -59,17 +61,27 @@ export default function SignIn() {
 						<div className='w-full flex flex-col gap-5 mt-8'>
 							{!isSign ? (
 								<>
-									<input
-										placeholder='Phone number'
-										type='text'
+									<InputMask
+										mask='+79999999999'
 										onChange={(e) =>
 											setUserData((prev) => ({
 												...prev,
 												phone_number: e.target.value,
 											}))
+										}>
+										{
+											//@ts-ignore
+											(inputProps) => (
+												<input
+													{...inputProps}
+													placeholder='Phone number'
+													type='text'
+													className='w-full h-12 rounded-xl px-1.5 text-black'
+												/>
+											)
 										}
-										className='w-full h-12 rounded-xl px-1.5 text-black'
-									/>
+									</InputMask>
+
 									<input
 										type='password'
 										placeholder='Password'
@@ -96,17 +108,26 @@ export default function SignIn() {
 										}
 									/>
 
-									<input
-										type='text'
-										placeholder='Phone number'
-										className='w-full h-12 rounded-xl px-1.5 text-black'
+									<InputMask
+										mask='+79999999999'
 										onChange={(e) =>
 											setUserData((prev) => ({
 												...prev,
-												phone: e.target.value,
+												phone_number: e.target.value,
 											}))
+										}>
+										{
+											//@ts-ignore
+											(inputProps) => (
+												<input
+													{...inputProps}
+													placeholder='Phone number'
+													type='text'
+													className='w-full h-12 rounded-xl px-1.5 text-black'
+												/>
+											)
 										}
-									/>
+									</InputMask>
 									<input
 										type='password'
 										placeholder='Password'
